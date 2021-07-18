@@ -1,0 +1,15 @@
+{
+   "formaPagto" : "DINHEIRO",
+    "cliente" : {
+        "id" : 1
+    },
+    "itens" :[
+        {
+          "quantidade" : 200,
+          "produto" : {
+              "id" : 1
+          }
+        }       
+    ]
+          
+}

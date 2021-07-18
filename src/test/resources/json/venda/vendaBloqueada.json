@@ -1,0 +1,15 @@
+{
+   "formaPagto" : "NOTA_APRAZO",
+    "cliente" : {
+        "id" : 2
+    },
+    "itens" :[
+        {
+          "quantidade" : 5,
+          "produto" : {
+              "id" : 2
+          }
+        }       
+    ]
+          
+}
