@@ -9,11 +9,15 @@ import org.springframework.stereotype.Service;
 
 import one.innovation.digital.domain.entity.Pessoa;
 import one.innovation.digital.domain.entity.Produto;
+import one.innovation.digital.domain.entity.VendaCab;
+import one.innovation.digital.domain.entity.VendaDet;
+import one.innovation.digital.domain.enums.FormaPagamento;
 import one.innovation.digital.domain.enums.Sexo;
 import one.innovation.digital.domain.enums.SituacaoPessoa;
 import one.innovation.digital.domain.enums.Status;
 import one.innovation.digital.domain.repository.PessoaRepository;
 import one.innovation.digital.domain.repository.ProdutoRepository;
+import one.innovation.digital.domain.service.VendaCabService;
 
 @Service
 public class DBService {
@@ -25,6 +29,8 @@ public class DBService {
 	private ProdutoRepository produtoRepository;
 	@Autowired
 	private PessoaRepository clienteRepository;
+	@Autowired
+	private VendaCabService cabService;
 	
 	public void instanciaBaseDados() {
 		produto = new Produto();
@@ -65,6 +71,23 @@ public class DBService {
 		cliente.setStatus(Status.ATIVO);
 		cliente.setCadastro(LocalDate.now());
 		clienteRepository.save(cliente);
+		
+		
+		Pessoa c = clienteRepository.findById(1L).get();
+		Produto p = produtoRepository.findById(1L).get();
+
+		VendaDet item = new VendaDet();
+		item.setProduto(p);
+		item.setQuantidade(new BigDecimal("7"));
+
+		VendaCab vc = new VendaCab();
+
+		vc.setFormaPagto(FormaPagamento.DINHEIRO);
+		vc.setCliente(c);
+		vc.getItens().add(item);
+
+		vc = cabService.adicionar(vc);
+
 
 	}
 }
