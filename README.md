@@ -21,7 +21,7 @@ Foi gerando alguns testes de integração e de API para a classe de venda.
 -	Maven
 -	PostgreSQL
 
-# Projeto de expiração...
+# Projeto de inspiração...
 ![tela de venda](https://user-images.githubusercontent.com/7797330/126247829-b2ec99b9-20d4-48cb-9c20-dc89ad55e988.gif)
 
 # Assistir o video
